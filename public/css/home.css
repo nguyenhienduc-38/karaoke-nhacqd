@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+}
+/* ===== FIX HOME LỆCH ===== */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+.topbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    padding: 10px 0;
+    background-color: gold;
+    background-image: url('/public/img/1234.jpg'), url('/public/img/dtn.jpg');
+    height: 100px;
+    background-size: 60%, 11%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 70%, right;
+}
+
+.logo {
+    font-size: 50px;
+    color: #f00;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.logo123 {
+    font-weight: bold;
+    font-size: 25px;
+    color: green;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 30px;
+}
+
+.logo123 span {
+    display: inline-block;
+    transform: scale(1);
+    transition: transform 0.3s;
+    color: red;
+}
+
+
+/* Xoá background-clip cho content */
+.content {
+    display: flex;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    /* overlay trên video */
+}
+
+.sidebar {
+    width: 200px;
+}
+
+.videos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 20px;
+}
+
+.video-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    transition: .25s;
+    width: 100%;
+    max-width: 400px;
+}
+
+.video-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .15);
+}
+
+.thumbnail {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.video-card:hover .thumbnail {
+    transform: scale(1.05);
+}
+
+.video-info {
+    padding: 10px;
+}
+
+.video-info .title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.video-info .channel {
+    font-size: 13px;
+    color: #555;
+}
+
+/* Video background */
+.video-background {
+    position: fixed;
+    /* phủ full màn hình */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    /* dưới tất cả nội dung */
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    /* cho phép click xuyên qua video */
+}
+
+.video-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* lớp tối mờ */
+    z-index: 0;
+}
+
+.sidebar-img {
+    display: flex;
+    position: relative;
+    height: 70px;
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        height: 70px;
+        padding: 6px 10px;
+    }
+
+    .logo-box {
+        text-align: center;
+    }
+
+    .logo123 {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+}
+
+.video-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding-top: 70px;
+        /* tránh topbar */
+    }
+
+    .videos {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-card {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .video-card img {
+        width: 90px;
+        height: 60px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 480px) {
+    .logo123:last-child {
+        display: none;
+    }
+}
